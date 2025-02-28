@@ -13,7 +13,7 @@
 
 ## 📦 快速使用
 
-### 下载二进制包
+### [下载二进制包](https://github.com/zouXH-god/DomainSpriteDDNSClient/releases)
 
 ## ⚙️ 配置指南
 
