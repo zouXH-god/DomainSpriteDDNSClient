@@ -46,8 +46,6 @@ const dataPath = "data.json"
 func makeIp2A(baseUrl, AccessSalt string) error {
 	urlPath := "/fast/ip2a"
 	url := baseUrl + urlPath
-	println(url)
-	println(AccessSalt)
 
 	// 创建HTTP请求
 	req, err := http.NewRequest("GET", url, nil)
@@ -86,6 +84,7 @@ func makeIp2A(baseUrl, AccessSalt string) error {
 	if err := os.WriteFile(dataPath, data, 0644); err != nil {
 		return fmt.Errorf("保存文件失败: %v", err)
 	}
+	fmt.Printf("域名信息：【%s.%s】\n", response.Data.RecordInfo.RecordName, response.Data.RecordInfo.DomainName)
 
 	return nil
 }
@@ -101,6 +100,7 @@ func sendRecordUpdate(baseUrl string) error {
 	if err := json.Unmarshal(data, &savedData); err != nil {
 		return fmt.Errorf("解析保存数据失败: %v", err)
 	}
+	fmt.Printf("域名信息：【%s.%s】\n", savedData.Data.RecordInfo.RecordName, savedData.Data.RecordInfo.DomainName)
 
 	// 构造请求URL
 	urlPath := "/fast/updateRecord?token=" + savedData.Data.Token
