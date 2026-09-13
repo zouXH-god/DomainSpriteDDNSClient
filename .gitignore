@@ -1,0 +1,10 @@
+data.json
+*.tmp
+.env
+build/
+/DomainSpriteDDNSClient
+/DomainSpriteDDNSClient.exe
+/DDNSClient.exe
+coverage.out
+.idea/
+.vscode/
